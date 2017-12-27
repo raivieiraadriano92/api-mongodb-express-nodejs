@@ -3,6 +3,8 @@ version: '2'
 services:
     api:
         image: raivieiraadriano92/node-tools:latest
+        environment:
+            NODE_ENV: development
         volumes:
             - .:/usr/src
         working_dir: /usr/src
