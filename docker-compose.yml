@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+    api:
+        image: raivieiraadriano92/node-tools:latest
+        volumes:
+            - .:/usr/src
+        working_dir: /usr/src
+        ports:
+            - '3000:3000'
+        tty: true
+        links:
+            - mongodb
+        depends_on:
+            - mongodb
+
+    mongodb:
+        image: mongo:3.2.5
