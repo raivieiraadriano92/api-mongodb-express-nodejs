@@ -3,7 +3,7 @@ module.exports = function(app){
 
     var Controller = {
         auth: function(req, res){
-
+            res.json({a:1});
         }
     }
 
