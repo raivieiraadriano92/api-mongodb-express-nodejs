@@ -15,4 +15,4 @@ $ nodemon -exec 'npm start'
 
 ### Running your application
 
-Open in browser http: // localhost:3000
+Open in your browser http: // localhost:3000
