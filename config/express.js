@@ -15,7 +15,6 @@ module.exports = function(){
                 console.log('Connected mongoose!');
             });
 
-    // app.use(auth.initialize());
     app.use(cors());
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
@@ -23,8 +22,21 @@ module.exports = function(){
 
     load('models', {cwd: 'app'})
         .then('controllers')
+        .then('middlewares')
         .then('routes')
         .into(app);
+
+    app.use(function(err, req, res, next) {
+        res.status(500).send({
+            message: 'Ops. Parace que este recurso não esta funcionando corretamente.'
+        });
+    });
+
+    app.use(function(req, res, next) {
+        res.status(404).send({
+            message: 'Ops. O recurso que você esta tentando acessar não existe.'
+        });
+    });
 
     return app;
 }

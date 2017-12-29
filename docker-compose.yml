@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-    api:
+    app:
         image: raivieiraadriano92/node-tools:latest
         environment:
             NODE_ENV: development
